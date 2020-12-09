@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="/img/weather.png">
+
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header titleClass="pageTitle"}}
+
+        <img src="../img/offroad-jeep.jpg"></img>
+
+        <div>{{message}}</div>
+        <div>
+            <ul>
+                <li>Name: {{info.name}}</li>
+                <li>Age: {{info.age}}</li>
+                <li>Sex: {{info.sex}}</li>
+                <li>Catchphrase: {{info.catchphrase}}</li>
+            </ul>
+        </div>
+    </div>
+
+    {{>footer}}
+</body>
+
+</html>
