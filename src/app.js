@@ -13,6 +13,7 @@ const partialsDir = path.join(__dirname, '../templates/partials');
 
 // Setup express and static directory to serve
 const app = express();
+const port = process.env.PORT || 3000
 app.use(express.static(publicDir));
 
 // Setup handlebars engine and paths
@@ -133,6 +134,6 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('Port 3000 connected.');
+app.listen(port, () => {
+    console.log(`Port ${port} connected.`);
 });
