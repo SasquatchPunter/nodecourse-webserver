@@ -3,8 +3,8 @@ const express = require('express');
 const request = require('request');
 const hbs = require('hbs');
 const { info } = require('console');
-const { forecast } = require(path.join(__dirname, '../../weather-app/utils/forecast'));
-const geocode = require(path.join(__dirname, '../../weather-app/utils/geocode'));
+const { forecast } = require(path.join(__dirname, './utils/forecast'));
+const geocode = require(path.join(__dirname, './utils/geocode'));
 
 // Define express config paths
 const publicDir = path.join(__dirname, '../public');
