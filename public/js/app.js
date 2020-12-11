@@ -5,6 +5,8 @@ const msg2 = document.querySelector('#message2')
 const unitButton = document.querySelector('#unitButton')
 
 const uvals = [['m', '\u00B0C', 'km/h'], ['f', '\u00B0F', 'mi/h'], ['s', 'K', 'km/h']] // unit value pairs
+const dirs = ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'] // wind direction
+
 var uidx = 0 // represents uvals index
 unitButton.textContent = uvals[uidx][1]
 
@@ -33,7 +35,6 @@ weatherForm.addEventListener('submit', (e) => {
             const { name, region, country } = data.location
             const degChar = uvals[uidx][1]
             const dirChar = uvals[uidx][2]
-            const dirs = ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW']
             const windDir = dirs[parseInt(((wind_degree % 349) + 11) / 22.5)]
 
             msg1.textContent = name + ', ' + region + ', ' + country
