@@ -40,7 +40,7 @@ const chalk = require('chalk');
 const forecast = (units = 's', lon, lat, callback) => {
     const url = 'http://api.weatherstack.com/current?access_key=6464bfe867a8b90e166764f2f7e759f6&units=' + units + '&query=' + lon + ',' + lat;
 
-    request({url: url, json: true}, (error, response) => {
+    request({ url: url, json: true }, (error, response) => {
         if (error) {
             callback('There was a problem connecting to the Weatherstack API!', undefined);
         } else if (!['m', 'f', 's'].includes(units)) {
@@ -48,9 +48,9 @@ const forecast = (units = 's', lon, lat, callback) => {
         } else if (!response.body.location) {
             callback('Could not find a location matching ' + lon + ', ' + lat, undefined);
         } else {
-            const {name, region, country} = response.body.location;
-            const {temperature, feelslike, precip: precipitation, pressure, humidity} = response.body.current;
-            const {[0]:description} = response.body.current.weather_descriptions;
+            const { name, region, country } = response.body.location;
+            const { temperature, feelslike, precip: precipitation, pressure, humidity, wind_speed, wind_degree } = response.body.current;
+            const { [0]: description } = response.body.current.weather_descriptions;
 
             let u = 'K';
             if (units === 'm')
@@ -62,7 +62,7 @@ const forecast = (units = 's', lon, lat, callback) => {
                 location: {
                     name, region, country
                 },
-                temperature, feelslike, precipitation, pressure, humidity, description, units:u
+                temperature, feelslike, precipitation, pressure, humidity, description, units: u, wind_speed, wind_degree
             };
             callback(undefined, data);
         }
