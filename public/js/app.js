@@ -34,12 +34,12 @@ weatherForm.addEventListener('submit', (e) => {
             const { temperature, feelslike, precipitation, pressure, humidity, description, units, wind_speed, wind_degree } = data
             const { name, region, country } = data.location
             const degChar = uvals[uidx][1]
-            const dirChar = uvals[uidx][2]
+            const dirChars = uvals[uidx][2]
             const windDir = dirs[parseInt(((wind_degree % 349) + 11) / 22.5)]
 
             msg1.textContent = name + ', ' + region + ', ' + country
             msg2.textContent = 'It is ' + temperature + degChar + ' but feels like ' + feelslike + degChar + '.\n' +
-                'The weather is currently ' + description + '. There are currently winds of ' + wind_speed + dirChar + ' blowing towards the ' + windDir + '.'
+                'The weather is currently ' + description.toLowerCase() + '. There are winds of ' + wind_speed + dirChars + ' blowing toward the ' + windDir + '.'
 
             console.log('Weather data retrieved and text data finished rendering.')
             console.log('Wind degrees: ' + wind_degree)
